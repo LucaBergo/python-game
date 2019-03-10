@@ -6,10 +6,19 @@ class World:
 
 	
 
-	def __init__(self,size,player,monsternumber):
+	def __init__(self,size,player,chiave, wallnumber):
 		self.size=size
-		self.entities=  [ player ]
+		self.entities=  [ player, chiave]
 
+
+
+
+		for i in range(wallnumber):
+			while True:
+				coordinates= (randint(0,size[0]-1),randint(0,size[1]-1))
+				if self.GetEntityAtCoords(coordinates)==None:
+					self.entities.append(Entity(coordinates,"W"))
+					break
 
 
 
